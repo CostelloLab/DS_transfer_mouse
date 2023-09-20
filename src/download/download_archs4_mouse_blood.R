@@ -15,6 +15,7 @@ url = "https://s3.dev.maayanlab.cloud/archs4/files/mouse_gene_v2.2.h5"
 # Check if gene expression file was already downloaded, if not in current directory download file form repository
 if(!file.exists(destination_file)){
     print("Downloading compressed gene expression matrix.")
+        options(timeout=1e5)
         download.file(url, destination_file, quiet = FALSE, mode = 'wb')
 	}
 
