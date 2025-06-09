@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pvae"
+version = "0.1.0"
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+namespaces = false
+
+[tool.pytest.ini_options]
+# color output and show skipped
+addopts = "--color=yes -rs"
+
+[tool.black]
+target-version = ['py39', 'py310', 'py311', 'py312']
+line-length = 88
+
+[tool.ruff]
+target-version = "py312"
+line-length = 88
+
+[tool.ruff.lint]
+ignore = [
+    "E501",  # line-too-long (black should handle)
+    "UP038",  # it produces slower code 
+]
+select = [
+    "B",  # flake8-bugbear
+    "C",  # flake8-comprehensions
+    "C90",  # mccabe
+    "E",  # pycodestyle errors
+    "F",  # pyflakes
+    "I",  # isort
+    "UP",  # pyupgrade
+    "W",  # pycode warnings
+]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 19
+
+[tool.ruff.lint.per-file-ignores]
+"nbs/**/*.ipynb" = ["B018"]
+"nbs/**/*.py" = ["B018"]
+"src/linear_signal/**/*.py" = ["F821"]
+"tasks.py" = ["B008"]
+
+[tool.pytask.ini_options]
+#paths = "pvae/tasks/"
+task_files = ["tasks.py"]
+show_errors_immediately = true
+
+[tool.pytask.ini_options.markers]
+setup_data = "Data setup tasks (downloading external data, processing, etc)"
+run_standard_methods = "Run standard methods"
+run_pvae = "Run/train the PVAE model"

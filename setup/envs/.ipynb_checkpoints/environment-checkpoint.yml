@@ -1,0 +1,41 @@
+name: pvae
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - ipython
+  - ipywidgets
+  - jupyterlab=4.4.*
+  - jupytext=1.16.*
+  - matplotlib=3.10.*
+  - numpy=2.2.*
+  - pandas=2.2.*
+  - papermill=2.6.*
+  - pip
+  - pre-commit=4.2.*
+  - pyarrow=19.*
+  - pytask=0.5.*
+  - pytask-parallel
+  - pytest=8.3.*
+  - python=3.12.*
+  - python-dotenv=1.*
+  - r-base=4.3.*
+  - r-devtools
+  - r-essentials
+  # <plier_dependencies>
+  - r-glmnet==4.1.*
+  - r-gplots==3.2.*
+  - r-pheatmap=1.0.*
+  - r-reticulate
+  - r-rsvd==1.0.*
+  # </plier_dependencies>
+  - r-svglite==2.1.*
+  - rpy2==3.5.*
+  - scikit-learn=1.6.*
+  - scipy=1.15.*
+  - seaborn=0.13.*
+  - tqdm=4.*
+  - pip:
+      - torch==2.6.*
+      - scikit-multilearn==0.2.*
+      - gprofiler-official==1.0.*  
