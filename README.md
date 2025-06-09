@@ -64,22 +64,22 @@ The goal of this project is to learn the relationship between the transcriptomic
 **RESULTS:**
 **Figure 1** shows null distribution of the total significant lvs count and corresponding observed total significant lvs count for true labels in case of Plier. Similarly, in **Figure 2** for VAE. Both the models, total significant lv count for true tissue label (observed) is significantly more than random shuffles (null distribution).  In both cases Plier and VAE p-values is close to zero(<< 0.05) with total significant lvs in Plier ~170 and VAE ~115 out of 168 total lvs. Indicating both models (Plier, VAE) were able to generalize to unseen data. Further, we took global significant lvs from VAE and Plier, do correlation heatmap plot in **Figure 3** showing significantly low positive correlation between lvs of Plier and VAE, indicating models are learning different lvs. Similar to **Figure 3**, **Figure 4** is showing maximum correlation for each lv in VAE across all lvs in Plier. It shows that for some lvs in VAE there exist an lv in Plier that has strong positive correlation but in most cases maximum positive correlation is low. In **Figure 5**,  we created cluster heatmap showing lack similarity between lvs of the Plier and VAE. Overall we can say Plier and VAE models are generalizing to unseen data with small similarity between the lvs of Plier and VAE.
 
-|![Figure 1] (https://github.com/CostelloLab/DS_transfer_mouse/figures/Null_distribution_Plier_plot.PNG)|
+|![Figure 1] (https://github.com/CostelloLab/DS_transfer_mouse/blob/main/figures/Null_distribution_Plier_plot.PNG)|
 |:--:|
 | *Figure 1* |
 
-|![Figure 2] (https://github.com/CostelloLab/DS_transfer_mouse/figures/Null_distribution_VAE_plot.PNG)|
+|![Figure 2] (https://github.com/CostelloLab/DS_transfer_mouse/blob/main/figures/Null_distribution_VAE_plot.PNG)|
 |:--:|
 | *Figure 2* |
 
-|![Figure 3] (https://github.com/CostelloLab/DS_transfer_mouse/figures/vae_plier_significant_lvs_correlation.PNG)|
+|![Figure 3] (https://github.com/CostelloLab/DS_transfer_mouse/blob/main/figures/vae_plier_significant_lvs_correlation.PNG)|
 |:--:|
 | *Figure 3* |
 
-|![Figure 4] (https://github.com/CostelloLab/DS_transfer_mouse/figures/vae_plier_significant_lvs_max_correlation.PNG)|
+|![Figure 4] (https://github.com/CostelloLab/DS_transfer_mouse/blob/main/figures/vae_plier_significant_lvs_max_correlation.PNG)|
 |:--:|
 | *Figure 4* |
 
-|![Figure 5] (https://github.com/CostelloLab/DS_transfer_mouse/figures/correlation_cluster_heatmap.png)|
+|![Figure 5] (https://github.com/CostelloLab/DS_transfer_mouse/blob/main/figures/correlation_cluster_heatmap.png)|
 |:--:|
 | *Figure 5* |
