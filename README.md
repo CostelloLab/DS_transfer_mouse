@@ -1,3 +1,4 @@
+{% include mathjax.html %}
 # DS_transfer_mouse
 The goal of this project is to learn the relationship between the transcriptomic profiles of Down syndrome (DS) mouse models (Ts65Dn, Dp16, TcMAC21, etc.,  see !["Moyer et al."](https://www.cell.com/trends/genetics/fulltext/S0168-9525(20)30253-5?dgcid=raven_jbs_aip_email#secst0080) for a more detailed description of DS animal models). The relationship between mouse models with typical karyotypes and those simulating trisomy 21 is complicated by the 1.5 upregulation of genes homologous to those on human chromosome 21 (HSA12). Therefore, we hypothesize that learning this relationship requires models appopriate for learning this complex function. The repository provides the code and data necessary for creating and evaluating these deep learning models.  
 
@@ -44,8 +45,11 @@ The goal of this project is to learn the relationship between the transcriptomic
 2. Unseen data used for evaluating the models with their tissue types are GSE218883: adult mouse heart tissue (16 samples x 10851 genes); GSE218885: adult mouse brain tissue (18 samples x 10851 genes); GSE218887: embryonic mouse facial mesenchyme tissue (9 samples x 10851 genes);  GSE218890: adult mouse mesenteric lymph nodes (17 samples x 10851 genes). Available with this paper https://www.nature.com/articles/s41588-023-01399-7#data-availability  Total unseen data consists of 60 samples x 10851 genes. 
 
 ## Statistical Test ##
+
 **Goal:** Determine whether the number of significant LVs associated with all tissues from unseen data is greater than what would be expected by chance.
+
 **Null Hypothesis:** The number of significant lvs in randomly shuffled tissue lables is more than number of significant lvs observed in real data. 
+
 **STEPS:**
 1. Start with a trained model (e.g., PLIER, VAE) that outputs LVs per sample and real tissue labels to the output. Total number of LVs in both models are 168. 
 
@@ -62,6 +66,7 @@ The goal of this project is to learn the relationship between the transcriptomic
 7. Repeat these steps for both Plier and VAE.
  
 **RESULTS:**
+
 **Figure 1** shows null distribution of the total significant lvs count and corresponding observed total significant lvs count for true labels in case of Plier. Similarly, in **Figure 2** for VAE. Both the models, total significant lv count for true tissue label (observed) is significantly more than random shuffles (null distribution).  In both cases Plier and VAE p-values is close to zero(<< 0.05) with total significant lvs in Plier ~170 and VAE ~115 out of 168 total lvs. Indicating both models (Plier, VAE) were able to generalize to unseen data. Further, we took global significant lvs from VAE and Plier, do correlation heatmap plot in **Figure 3** showing significantly low positive correlation between lvs of Plier and VAE, indicating models are learning different lvs. Similar to **Figure 3**, **Figure 4** is showing maximum correlation for each lv in VAE across all lvs in Plier. It shows that for some lvs in VAE there exist an lv in Plier that has strong positive correlation but in most cases maximum positive correlation is low. In **Figure 5**,  we created cluster heatmap showing lack similarity between lvs of the Plier and VAE. Overall we can say Plier and VAE models are generalizing to unseen data with small similarity between the lvs of Plier and VAE.
 
 |![Figure 1] (https://github.com/CostelloLab/DS_transfer_mouse/blob/main/figures/Null_distribution_Plier_plot.PNG)|
